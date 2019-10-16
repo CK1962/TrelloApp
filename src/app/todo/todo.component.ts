@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
+import { Itodo } from "../itodo";
+import { TodoService } from "../todo.service";
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  selector: "app-todo",
+  templateUrl: "./todo.component.html",
+  styleUrls: ["./todo.component.css"]
 })
 export class TodoComponent implements OnInit {
-  todoList: { title: string; isDone: boolean; }[];
+  @Input() todo: Itodo;
+  constructor(private TodoService: TodoService) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.todoList = [
-      // example of how to make an item in todo list
-      { title: 'Install Angular CLI', isDone: false },
-
-    ];
+  setDoing(): void {
+    this.todo.isDoing = true;
   }
-
+  setDone(): void {
+    this.todo.isDone = true;
+  }
+  delete(): void {
+    this.TodoService.delete(this.todo);
+  }
+  toggleEdit() {
+    this.todo.isEditing = !this.todo.isEditing;
+  }
 }
