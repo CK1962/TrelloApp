@@ -1,16 +1,33 @@
-<h1 align="center">Todo List</h1>
-<ul align="center" class="list-group">
-  <li class="list-group-item" *ngFor="let todo of todoList">
-      <div class="view">
-        <label></label>
-        <div class="float-right">
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle">
-
+<div class="container">
+  <div class="row form-group">
+    <div for="newTitle" class="col-md-3">
+      <label>Add Todo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="newTitle"
+        placeholder="Todo Title"
+        [(ngModel)]="newTodoTitle"
+      />
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-sm btn-success" (click)="addNew()">Add</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Todo</h3>
+      <app-todo-list [todos]="todoItems"></app-todo-list>
+    </div>
+    <div class="col-md-4">
+      <h3>Doing</h3>
+      <app-todo-list [todos]="doingItems"></app-todo-list>
+    </div>
+    <div class="col-md-4">
+      <h3>Done</h3>
+      <app-todo-list [todos]="doneItems"></app-todo-list>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>

@@ -23,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NoopAnimationsModule,
     FormsModule,
     NgbModule,
-    MatTableModule
+    MatTableModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

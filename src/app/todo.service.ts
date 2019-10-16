@@ -5,7 +5,6 @@ import { Itodo } from 'src/app/itodo';
   providedIn: 'root'
 })
 export class TodoService {
-  todoList: Itodo[] = [];
 
   constructor() { }
 
